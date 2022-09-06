@@ -8,10 +8,21 @@
   padding: 0; 
   margin: 0; 
 }
-
 /******************************************
 /* LAYOUT
 /*******************************************/
+
+body{
+  width: 75%;
+  margin: 0 auto; 
+}
+
+header{
+  margin: 0 auto; 
+  text-align: center;
+  align-items: center;
+}
+
 img{
   display: block;
   margin: 0 auto;
@@ -21,10 +32,11 @@ img{
 .carousel{
   display: flex;
   width: 100%;
+  margin-top: 20%;
 }
 
 .slider{
-  margin: 0 auto; 
+  margin: 10% auto; 
   width: 50%;
   display: flex;
   align-items: center; 
