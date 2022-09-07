@@ -1,6 +1,7 @@
 document.querySelector('button').addEventListener('click', getFetch)
 const sliderSection = document.querySelector('.slider')
 
+const buttons = document.querySelectorAll('[data-carousel-button]')
 
 
 function getFetch(){
@@ -13,7 +14,7 @@ function getFetch(){
   fetch(url)
   .then(res => res.json()) // parse response as JSON
   .then(data => {
-    const drinkImages = data.drinks.map(drink => {
+    const drinkImages = data.drinks.map((drink, index) => {
 
       const drinkSection = document.createElement('div'); 
       
@@ -33,6 +34,9 @@ function getFetch(){
       drinkSection.appendChild(drinkHeader)
       drinkSection.appendChild(imgElement)
       drinkSection.appendChild(instructionElement)
+      if(index === 0)
+        drinkSection.classList.add('active')
+
     })
 })
 .catch(err => {
@@ -41,4 +45,20 @@ function getFetch(){
 });
 }
 
+buttons.forEach(button => addEventListener('click', setOffset))
 
+function setOffset(button){
+  const offset = button.path[0].dataset.carouselButton === 'next' ? 1 : -1; 
+
+  const slides = button.path[0].closest('[data-carousel').querySelectorAll('div')
+  console.log(slides, 'slides')
+  const activeSlide = button.path[0].closest('[data-carousel').querySelector('div.active')
+  console.log(activeSlide)
+
+  let newIndex = [...slides].indexOf(activeSlide) + offset; 
+  if(newIndex < 0) newIndex = slides.length - 1; 
+  if(newIndex >= slides.length) newIndex = 0; 
+
+  slides[newIndex].classList.add('active')
+  activeSlide.classList.remove('active')
+}

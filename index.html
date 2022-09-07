@@ -5,6 +5,10 @@
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
 		<title>CocktailFinder</title>
 
 		<!-- external CSS link -->
@@ -19,7 +23,10 @@
 			<button type="button" name="button">Get Cocktail</button>
 		</header>
 		<section class="carousle">
-			<div class="slider"></div>
+			<div class="slider" data-carousel>
+				<button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+				<button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+			</div>
 		</section>	
 	</section>
 
