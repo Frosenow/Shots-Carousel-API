@@ -9,6 +9,8 @@ function getFetch(){
   let drinkDivs = document.querySelectorAll('.slider div')
   drinkDivs.forEach(divChilde => sliderSection.removeChild(divChilde))
 
+  buttons.forEach(button => button.classList.remove('hidden'))
+
   const choice = document.querySelector('input').value.split(' ').join(' ')
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + choice
   fetch(url)
