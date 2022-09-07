@@ -9,6 +9,8 @@ function getFetch(){
   let drinkDivs = document.querySelectorAll('.slider div')
   drinkDivs.forEach(divChilde => sliderSection.removeChild(divChilde))
 
+  buttons.forEach(button => button.classList.remove('hidden'))
+
   const choice = document.querySelector('input').value.split(' ').join(' ')
   const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + choice
   fetch(url)
@@ -35,7 +37,7 @@ function getFetch(){
       drinkSection.appendChild(imgElement)
       drinkSection.appendChild(instructionElement)
       if(index === 0)
-        drinkSection.classList.add('active')
+        drinkSection.dataset.active = ''
 
     })
 })
@@ -45,20 +47,20 @@ function getFetch(){
 });
 }
 
-buttons.forEach(button => addEventListener('click', setOffset))
+buttons.forEach(button => {addEventListener('click', () => {   
+  const offset = button.dataset.carouselButton === 'next' ? 1 : -1; 
 
-function setOffset(button){
-  const offset = button.path[0].dataset.carouselButton === 'next' ? 1 : -1; 
+  const slides = button.closest('[data-carousel]').querySelectorAll('div')
 
-  const slides = button.path[0].closest('[data-carousel').querySelectorAll('div')
-  console.log(slides, 'slides')
-  const activeSlide = button.path[0].closest('[data-carousel').querySelector('div.active')
-  console.log(activeSlide)
+  const activeSlide = button.closest('[data-carousel]').querySelector('[data-active]')
+
 
   let newIndex = [...slides].indexOf(activeSlide) + offset; 
+  console.log(offset, 'offset', newIndex, 'newIndex')
   if(newIndex < 0) newIndex = slides.length - 1; 
   if(newIndex >= slides.length) newIndex = 0; 
 
-  slides[newIndex].classList.add('active')
-  activeSlide.classList.remove('active')
-}
+  slides[newIndex].dataset.active = "";
+  delete activeSlide.dataset.active; })})
+
+

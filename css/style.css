@@ -72,7 +72,7 @@ img{
   opacity: 0;
 }
 
-.slider > div.active{
+.slider > div[data-active]{
   opacity: 1;
 }
 
@@ -117,6 +117,10 @@ img{
 
 .carousel-button.next{
   right: 1rem;
+}
+
+.hidden{
+  display: none
 }
 
 /******************************************
