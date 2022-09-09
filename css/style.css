@@ -25,7 +25,7 @@ img{
   margin: 0 auto;
   max-width: 300px;
   border-radius: .5rem;
-  box-shadow: 4px 4px 67px -9px rgba(195, 195, 195, 1), -4px -4px 67px -9px rgba(195, 195, 195, 1);;
+  box-shadow: 10px 10px 20px 0px rgba(66, 68, 90, 1);
 }
 
 .slider{
@@ -58,6 +58,7 @@ img{
   inset: 0;
   opacity: 0;
   height: 500px;
+  transition: .5s opacity ease-in-out;
 }
 
 .slider > div.active{
@@ -93,6 +94,11 @@ img{
   background-color: rgba(0, 0, 0, .2);
 }
 
+.carousel-button:hover{
+  transform: scale(1.1);
+  transition: .2s transform ease-in-out;
+}
+
 .carousel-button:focus {
   outline: 1px solid black;
 }
@@ -114,6 +120,8 @@ nav{
   justify-content: center;
   gap: 95px;
 }
+
+
 
 /******************************************
 /* ADDITIONAL STYLES
