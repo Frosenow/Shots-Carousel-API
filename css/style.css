@@ -35,32 +35,32 @@ img{
   display: flex;
   width: 100%;
   margin-top: 20%;
+  height: 100%;
 }
 
 .slider{
-  margin: 5% auto; 
+  margin: .5rem auto; 
   width: 50%;
-  padding: 10px;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
-  position: relative; 
-  height: 100vh;
+  position: relative;
 }
 
 .slider > div > h1{
   text-align: center;
   margin: 5% auto;
-  height: 10%;  
+  height: auto;  
 }
 
 .slider > div > p{
   font-size: 1.5rem;
-  text-align: start;
+  text-align: justify;
   max-width: 400px;
   max-height: 50%;
-  padding-top: 20%;
+  padding: 20% 0;
+  margin: 0 auto; 
+  min-height: auto;
 }
 
 .slider > div{
@@ -122,6 +122,8 @@ img{
 .hidden{
   display: none;
 }
+
+
 
 /******************************************
 /* ADDITIONAL STYLES
