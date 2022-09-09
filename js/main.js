@@ -3,6 +3,8 @@ const sliderSection = document.querySelector('.slider')
 
 const buttons = document.querySelectorAll('[data-carousel-button]')
 
+const navBar = document.querySelector('template')
+const nav = navBar.content.cloneNode(true)
 
 function getFetch(){
   // Cleaning slider section by deleting old elements
@@ -16,28 +18,34 @@ function getFetch(){
   fetch(url)
   .then(res => res.json()) // parse response as JSON
   .then(data => {
+    // Hidding slider's buttons if there is only one element 
+    if(data.drinks.length === 1)
+      buttons.forEach(button => button.classList.add('hidden'))
+
     const drinkImages = data.drinks.map((drink, index) => {
-
-      const drinkSection = document.createElement('div'); 
       
-      const drinkName = drink.strDrink; 
-      const drinkHeader = document.createElement('h1')
-      drinkHeader.innerText = drinkName; 
+    const drinkSection = document.createElement('div'); 
+      
+    const drinkName = drink.strDrink; 
+    const drinkHeader = document.createElement('h1')
+    drinkHeader.innerText = drinkName; 
 
-      const imgUrl = drink.strDrinkThumb;
-      const imgElement = document.createElement('img')
-      imgElement.src = imgUrl; 
+    const imgUrl = drink.strDrinkThumb;
+    const imgElement = document.createElement('img')
+    imgElement.src = imgUrl; 
 
-      const instructionText = drink.strInstructions; 
-      const instructionElement = document.createElement('p');
-      instructionElement.innerText = instructionText;
+    const instructionText = drink.strInstructions; 
+    const instructionElement = document.createElement('p');
+    instructionElement.innerText = instructionText;
+    instructionElement.classList.add('paragraphStyle')
 
-      sliderSection.appendChild(drinkSection)
-      drinkSection.appendChild(drinkHeader)
-      drinkSection.appendChild(imgElement)
-      drinkSection.appendChild(instructionElement)
-      if(index === 0)
-        drinkSection.classList.add('active')
+    sliderSection.appendChild(drinkSection)
+    drinkSection.appendChild(drinkHeader)
+    drinkSection.appendChild(imgElement)
+    drinkSection.appendChild(nav)
+    drinkSection.appendChild(instructionElement)
+    if(index === 0)
+      drinkSection.classList.add('active')
 
     })
 })
@@ -51,8 +59,8 @@ buttons.forEach(button => addEventListener('click', setOffset))
 
 function setOffset(button){
   const offset = button.path[0].dataset.carouselButton === 'next' ? 1 : -1; 
-
-  const slides = button.path[0].closest('[data-carousel').querySelectorAll('div')
+  console.log(offset, 'offset')
+  const slides = button.path[0].closest('[data-carousel]').querySelectorAll('div')
   console.log(slides, 'slides')
   const activeSlide = button.path[0].closest('[data-carousel').querySelector('div.active')
   console.log(activeSlide)

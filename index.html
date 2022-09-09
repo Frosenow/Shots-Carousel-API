@@ -16,20 +16,19 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-	<section class="container">
 		<header>
 			<h1>Which Cocktail?</h1>
 			<input type="text" name="" value="">
 			<button type="button" name="button">Get Cocktail</button>
 		</header>
-		<section class="carousle">
-			<div class="slider" data-carousel>
-				<button class="carousel-button prev hidden" data-carousel-button="prev">&#8656;</button>
-				<button class="carousel-button next hidden" data-carousel-button="next">&#8658;</button>
-			</div>
-		</section>	
-	</section>
+		<div class="slider" data-carousel></div>
 
+		<template>
+			<nav class="nav-bar">
+				<button class="carousel-button prev hidden" data-carousel-button="prev">Prev</button>
+				<button class="carousel-button next hidden" data-carousel-button="next">Next</button>
+			</nav>
+		</template>
 		<script type="text/javascript" src="js/main.js" defer></script>
 	</body>
 </html>
