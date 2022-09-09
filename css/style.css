@@ -24,19 +24,22 @@ img{
   display: block;
   margin: 0 auto;
   max-width: 300px;
+  border-radius: .5rem;
+  box-shadow: 4px 4px 67px -9px rgba(195, 195, 195, 1), -4px -4px 67px -9px rgba(195, 195, 195, 1);;
 }
 
 .slider{
-  margin: .5rem auto; 
+  margin: 3rem auto; 
   width: 50%;
-  height: 100vh;
+  height: 100%;
   padding: 1rem;
   position: relative;
 }
 
 .slider > div > h1{
   text-align: center;
-  margin: .5rem auto; 
+  margin: .5rem auto;
+  padding-bottom: 1rem; 
 }
 
 .paragraphStyle{
@@ -102,9 +105,6 @@ img{
   right: 1rem;
 }
 
-/* .hidden{
-  display: none;
-} */
 
 nav{
   position: relative;
