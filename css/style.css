@@ -2,6 +2,63 @@
 /* CSS
 /*******************************************/
 
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+  font-family: 'Poppins', sans-serif;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Poppins', sans-serif;
+}
+
 /* Box Model Hack */
 *{
   box-sizing: border-box;
@@ -13,20 +70,118 @@
 /* LAYOUT
 /*******************************************/
 
-header{
-  margin: 0 auto; 
-  text-align: center;
-  align-items: center;
-  text-transform: uppercase;
+/******************************************
+/* LANDING PAGE
+/*******************************************/
+
+body{
+  margin: 0; 
+  background-color: black;
+  width: 100vw; 
+  height: 100vh;
 }
 
-img{
+.logo-img{
+  max-width: 100px;
+  display: flex;
+  flex: 1 0 100px;
+  justify-content: flex-start;
+}
+
+.logo-text{
+  flex: 1;
+  font-size: 3.5rem;
+  justify-content: flex-start;
+  padding-left: 1rem;
+  background: linear-gradient(266deg, rgba(241,232,189,1) 0%, rgba(228,210,123,1) 35%, rgba(215,188,57,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: .5rem 0 .5rem 1rem;
+}
+
+.nav-options{
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.nav-bar{
+  background-color: white;
+  max-height: 130px;
+  position: fixed;
+  width: 100vw;
+}
+
+.nav-bar > nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav-options > li{
+  padding: 1rem;
+}
+
+.container::-webkit-scrollbar{
+  display: none;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+.container{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+section > h1{ 
+  font-size: 5rem;
+  font-weight: 400;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+.container > section {
+  width: 100vw; 
+  height: 100vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.container > section:nth-of-type(1){
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+}
+
+.container > section:nth-of-type(2){
+  background-color: rgba(255, 255, 255, 1);
+  color: black;
+}
+
+.container > section:nth-of-type(3){
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+}
+
+a:hover{
+  color: rgba(228, 210, 123, .9)
+}
+
+
+
+/* img{
   display: block;
   margin: 0 auto;
   max-width: 300px;
   border-radius: .5rem;
   box-shadow: 10px 10px 20px 0px rgba(66, 68, 90, 1);
-}
+} */
 
 .slider{
   margin: 3rem auto; 
@@ -111,7 +266,7 @@ img{
   right: 1rem;
 }
 
-
+/* 
 nav{
   position: relative;
   padding: 1rem 1rem 0 1rem;
@@ -119,7 +274,7 @@ nav{
   display: flex;
   justify-content: center;
   gap: 95px;
-}
+} */
 
 
 
