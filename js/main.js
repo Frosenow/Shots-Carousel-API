@@ -1,9 +1,6 @@
 document.querySelector('button').addEventListener('click', getFetch)
 const sliderSection = document.querySelector('.slider')
 
-fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?')
-.then(res => res.json())
-.then(data => console.log(data))
 
 function getFetch(){
   // Cleaning slider section by deleting old elements
