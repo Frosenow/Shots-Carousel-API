@@ -1,5 +1,15 @@
 const cardHolderElement = document.querySelector('.card-holder')
 
+const Observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('show')
+        } else {
+            entry.target.classList.remove('show')
+        }    
+    })
+})
+
 class DrinkFactory{
     constructor(drinkName, drinkId, drinkImg, drinkAlcoholic){
         this.drinkName = drinkName; 
@@ -11,6 +21,7 @@ class DrinkFactory{
         const cardHolder = document.createElement('div')
 
         cardHolder.classList.add('card')
+        cardHolder.classList.add('hidden')
 
         const drinkNameHeading = document.createElement('h3')
         drinkNameHeading.textContent = String(this.drinkName);
@@ -23,7 +34,8 @@ class DrinkFactory{
         const drinkType = document.createElement('span')
         drinkType.classList.add('drink-type')
         drinkType.textContent = String(this.drinkAlcoholic);
-        cardHolder.appendChild(drinkType) 
+        cardHolder.appendChild(drinkType)
+        Observer.observe(cardHolder) 
 
         return cardHolder;
     }
@@ -44,3 +56,6 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
         cardHolderElement.appendChild(cardElement)
     }
 })
+
+
+
