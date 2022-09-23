@@ -110,6 +110,7 @@ body{
   max-height: 130px;
   position: fixed;
   width: 100vw;
+  background: linear-gradient(0deg, rgba(238,238,238,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
 }
 
 .nav-bar > nav{
@@ -133,10 +134,6 @@ body{
   scrollbar-width: none;
 }
 
-section > h1{ 
-  font-size: 5rem;
-  font-weight: 400;
-}
 
 .container{
   width: 100%;
@@ -167,6 +164,50 @@ section > h1{
 .container > section:nth-of-type(3){
   background-color: rgba(0, 0, 0, 1);
   color: white;
+}
+
+.hero-container{
+  margin: .5rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-container > section{
+  padding: .5rem 1.5rem;
+  margin: .5rem 1rem;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
+.hero-container img{
+  margin: 0 auto;
+}
+
+section > h1{ 
+  font-size: 4rem;
+  font-weight: 400;
+  color: rgba(215,188,57,1);
+  padding: 5rem 0 3rem 0;
+}
+
+section > p, section > span{
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+span{
+  color: rgba(215,188,57,1);
+}
+
+#hero-page-img{
+  width: clamp(5rem, 800px, 80%)
 }
 
 a:hover{
