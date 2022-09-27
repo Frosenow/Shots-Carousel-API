@@ -36,10 +36,36 @@
         <section class="card-holder">
             
         </section>
-        <section>
-            <h1>Page Three</h1>
+        <section class="about-us">
+            <section class="map-section">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4699313.116749623!2d9.962742848111784!3d56.03141637495615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xeb34857d5f6795b9!2zNTXCsDUyJzAwLjgiTiAxOMKwMDAnNTIuNCJF!5e0!3m2!1sen!2spl!4v1664285658629!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            <section class="contact-form-section">
+                <form>
+                    <section>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your name">
+                        <small class="error"></small>
+
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your email">
+                        <small class="error"></small>
+                    </section>
+                    <section>
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="Your message" rows="10" cols="30"></textarea>
+                        <small class="error"></small>
+    
+                        <div class="submit-btn">
+                            <input type="submit" value="Send Message">
+                            <span id="success-btn"></span>
+                        </div>
+                    </section>
+                </form>
+            </section>
         </section>
     </div>
+    
     <script type="text/javascript" src="js/app.js" defer></script>
 </body>
 </html>
