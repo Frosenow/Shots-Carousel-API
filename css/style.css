@@ -293,7 +293,7 @@ a:hover{
   height: 100%;
   display: flex;
   align-items: center;
-  font-size: 2.5rem;
+  justify-content: center;
 }
 
 .map-section h4, .contact-form-section h4{
@@ -346,19 +346,94 @@ a:hover{
 /******************************************
 /* CONTACT FORM DESIGN
 /*******************************************/
-
 form{
-  display: flex;
-  width: 100%;
-  height: 100%;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 500px;
+  width: 90%;
+  line-height: 1.8rem;
 }
+
 
 label{
   display: block;
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  margin: .5rem 0;
 }
+
+input[type='text'], input[type='email'], textarea{
+  width: 100%;
+  padding: 5px;
+  outline: none; 
+  resize: none;
+  border: none; 
+  border-bottom: 1px solid #e4d27b;
+  background-color: #000000;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+input[type='text']:focus, input[type='email']:focus, textarea:focus{
+  border-bottom: 1px solid #d7bc39;
+}
+
+textarea::-webkit-scrollbar{
+  width: 3px; 
+}
+
+textarea::-webkit-scrollbar-thumb{
+  background-color: #d7bc39;
+}
+
+.submit-btn{
+  text-align: center;
+}
+
+input[type='submit'] {
+  border: none; 
+  color: white; 
+  font-family: 'Poppins', sans-serif;
+  width: 50%;
+  height: 30px;
+  background-color: #e4d27b;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+textarea::placeholder{
+  color: white; 
+  opacity: .7;
+}
+
+input[type='text']::-ms-input-placeholder,
+input[type='email']::-ms-input-placeholder,
+textarea::-ms-input-placeholder{
+  color: white; 
+  opacity: .7;
+}
+
+
+
+input[type='submit']:hover{
+  background-color: #d7bc39;
+}
+
+.error {
+  color: rgb(248, 105, 105, .8);
+  font-family: 'Poppins', sans-serif;
+  display: block;
+  margin-top: .25rem;
+}
+
+#success-btn {
+  color: #e4d27b;
+  display: block;
+  margin-top: .5rem;
+  font-family: 'Poppins', sans-serif;
+}
+
 
 /******************************************
 /* ADDITIONAL STYLES

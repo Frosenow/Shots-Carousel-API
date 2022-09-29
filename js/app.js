@@ -1,4 +1,6 @@
 const cardHolderElement = document.querySelector('.card-holder')
+const formElement = document.querySelector('form')
+
 
 const Observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -57,5 +59,45 @@ fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
     }
 })
 
+formElement.addEventListener('submit', formValidation)
+const nameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email')
+const messageInput = document.querySelector('#message')
+const successInfo = document.querySelector('#success-btn')
+const errorNodes = document.querySelectorAll('.error')
 
+
+function formValidation(){
+
+    clearErrorMessage();
+    let errorFlag = false; 
+
+    if(nameInput.value.length < 1){
+        errorNodes[0].innerText = 'Name cannot be blank'
+        errorFlag = true; 
+    }
+
+    if(!emailIsValid(emailInput.value)){
+        errorNodes[1].innerText = 'Invalid email address'
+        errorFlag = true; 
+    }
+
+    if(messageInput.value.length < 1){
+        errorNodes[2].innerText = 'Please enter message'
+        errorFlag = true; 
+    }
+
+    if(!errorFlag){
+        successInfo.innerText = 'Thank you!'
+    }
+}
+
+function clearErrorMessage(){
+    errorNodes.forEach(errorMsg => errorMsg.innerText = '')
+}
+
+function emailIsValid(email){
+    const regexEmailPattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    return regexEmailPattern.test(email);
+}
 
