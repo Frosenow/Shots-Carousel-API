@@ -76,6 +76,7 @@ a{
 
 h1, h2, h3, h4, h5, h6{
   font-family: 'Playfair Display', sans-serif;
+  font-weight: 400;
 }
 
 .hidden{
@@ -251,6 +252,12 @@ a:hover{
   display: flex; 
   justify-content: center;
   align-items: center;
+  flex-flow: wrap;
+  scroll-margin-top: 100px;
+}
+
+.container .card-holder{
+  height: calc(100vh - 100px);
 }
 
 .card-holder h3{
@@ -259,9 +266,25 @@ a:hover{
   font-size: 2rem;
 }
 
+.card-holder .text-style{
+  color: rgba(215,188,57,1); 
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 4rem;
+}
+
 .card-holder span{
   font-family: 'Poppins', sans-serif;
   font-size: 1.75rem;
+}
+
+.card-holder h2{
+  font-size: 4rem;
+  display: block;
+  align-self: stretch;
+  width: 100%;
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: .5rem; 
 }
 
 .card{
@@ -270,7 +293,7 @@ a:hover{
   align-items: center;
   justify-content: space-evenly;
   font-size: 2rem;
-  margin: 1.5rem;
+  margin: 1rem 1.5rem 2rem 1.5rem;
 }
 
 .card > img{
@@ -279,7 +302,7 @@ a:hover{
 }
 
 .about-us{
-  display: flex;
+  flex-wrap: wrap;
   scroll-margin-top: 100px;
   scroll-margin-bottom: 20px;
 }
@@ -289,12 +312,24 @@ a:hover{
   height: calc(100vh - 120px);
 }
 
-.map-section, .contact-form-section{
+.about-us h4{
+  align-self: stretch;
+  font-size: 3rem;
+  font-family: 'Playfair Display', sans-serif;
+  font-weight: 400;
   width: 100%;
-  height: 100%;
+  text-align: center;
+  padding: 5rem 0;
+  color: rgba(215,188,57,1);
+}
+
+.map-section, .contact-form-section{
+  width: 50%;
+  height: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 5rem;
 }
 
 .map-section h4, .contact-form-section h4{
