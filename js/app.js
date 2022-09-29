@@ -47,10 +47,14 @@ class DrinkFactory{
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
 .then(res => res.json())
 .then(obj => {
+    const randOffsetArr = [];
     for(let i = 0; i < 4; i++){
-        
-        const randOffset = Math.floor(Math.random() * 20)
-        const drink = obj.drinks[i + randOffset]
+        let randomOffset = Math.floor(Math.random() * 20)
+        while(randOffsetArr.includes(randomOffset)){
+            randomOffset = Math.floor(Math.random() * 20)
+        }
+        randOffsetArr.push(randomOffset);
+        const drink = obj.drinks[i + randomOffset]
         const drinkObj = new DrinkFactory(drink.strDrink, drink.idDrink, drink.strDrinkThumb, drink.strAlcoholic)
 
         const cardElement = drinkObj.createCard();
