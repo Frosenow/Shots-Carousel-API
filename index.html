@@ -1,40 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    	<meta charset="utf-8">
-    	<meta name="description" content="This is where your description goes">
-    	<meta name="keywords" content="one, two, three">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>BottledUp</title>
+</head>
+<body>
+    <div class="container">
+        <header class="nav-bar">
+            <nav>
+                <a href="/"><img class="logo-img" src="assets/img/logo.png" alt="logo image of robot bartender"></a>
+                <a href="/"><h1 class="logo-text">BottledUp.</h1></a>
+                <ul class="nav-options">
+                    <li><a href="">Random Drink</a></li>
+                    <li><a href="find-drink.html">Find Drink</a></li>
+                    <li><a href="">Search By Ingredients</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="main-info">
+            <section class="hero-container">
+                <section>
+                    <h1>What is BottledUp?</h1>
+                    <p>BottledUp is a website where you can find inspiration for your drinks, draw a cocktail, or see what you can create, from ingredients you happen to have in your fridge. Become a master of mixology with these quick and easy classic cocktails you know and new drinks you are sure to love—made with only four ingredients or less!</p>
+                    <p>Have you ever wanted to make great tasting drinks at home, but didn't know where to start? BottledUp got answers for all of your questions and show you that there is no need for an expensive and extensive home liquor cabinet.</p>
+                    <span>Scroll for more!</span>
+                </section>
+                <section>
+                    <img id="hero-page-img" src="assets/img/Cocktail _Two Color.svg" alt="image of drinks">
+                </section>
+            </section>
+        </section>
+        <section class="card-holder">
+            <h2>Discover new <span class="text-style">taste</span> of drinks</h2>
+        </section>
+        <section class="about-us">
+            <h4>Get to know us better!</h4>
+            <section class="map-section">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4699313.116749623!2d9.962742848111784!3d56.03141637495615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xeb34857d5f6795b9!2zNTXCsDUyJzAwLjgiTiAxOMKwMDAnNTIuNCJF!5e0!3m2!1sen!2spl!4v1664285658629!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            <section class="contact-form-section">
+                <form onsubmit="event.preventDefault()">
+                    <section>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Your name">
+                        <small class="error"></small>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
-		<title>CocktailFinder</title>
-
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<header>
-			<h1>Which Cocktail?</h1>
-		<form class="search-form">
-			<input type="text" name="" value="" placeholder="Drink Name" class="search">
-			<button type="button" name="button" >Get Cocktail</button>
-			<ul class="suggestions">
-				
-			</ul>
-		</form>
-		</header>
-		<div class="slider" data-carousel></div>
-		
-		<template>
-			<nav class="nav-bar">
-				<button class="carousel-button prev hidden" data-carousel-button="prev">Prev</button>
-				<button class="carousel-button next hidden" data-carousel-button="next">Next</button>
-			</nav>
-		</template>
-
-		<script type="text/javascript" src="js/main.js" defer></script>
-	</body>
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Your email">
+                        <small class="error"></small>
+                    </section>
+                    <section>
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="Your message" rows="10" cols="30"></textarea>
+                        <small class="error"></small>
+    
+                        <div class="submit-btn">
+                            <input type="submit" value="Send Message">
+                            <span class='hidden-btn' id="success-btn"></span>
+                        </div>
+                    </section>
+                </form>
+            </section>
+        </section>
+        <footer>&#169; BottledUp - 2022 - Filip Potepa</footer>
+    </div>
+    
+    <script type="text/javascript" src="js/app.js" defer></script>
+</body>
 </html>

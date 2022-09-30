@@ -43,6 +43,21 @@ class DrinkFactory{
     }
 }
 
+function getAllDrinks(){
+    const drinksArr = []; 
+
+    const alcoholicEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic';
+    const nonAlcoholicEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
+
+    Promise.all([fetch(alcoholicEndpoint), fetch(nonAlcoholicEndpoint)])
+    .then(res => Promise.all(res.map(promise => promise.json())))
+    .then(data => {
+        drinksArr.push(...data[0].drinks)
+        drinksArr.push(...data[1].drinks)
+    })
+
+    return drinksArr
+}
 
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
 .then(res => res.json())
