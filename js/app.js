@@ -43,21 +43,6 @@ class DrinkFactory{
     }
 }
 
-function getAllDrinks(){
-    const drinksArr = []; 
-
-    const alcoholicEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic';
-    const nonAlcoholicEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
-
-    Promise.all([fetch(alcoholicEndpoint), fetch(nonAlcoholicEndpoint)])
-    .then(res => Promise.all(res.map(promise => promise.json())))
-    .then(data => {
-        drinksArr.push(...data[0].drinks)
-        drinksArr.push(...data[1].drinks)
-    })
-
-    return drinksArr
-}
 
 fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
 .then(res => res.json())
@@ -120,3 +105,64 @@ function emailIsValid(email){
     return regexEmailPattern.test(email);
 }
 
+async function getJson(url){
+    const response = await fetch(url)
+    const data = await response.json();
+    return data; 
+}
+
+async function GetDataFromServer(url1, url2){
+    const multipleResponses = await Promise.all([getJson(url1), getJson(url2)])
+    const combinedData = joinData(multipleResponses);
+    return combinedData;
+}
+
+function joinData(response){
+    const drinksArr = []; 
+    response.forEach(element => {
+        drinksArr.push(...element.drinks)
+    })
+
+    return drinksArr
+}
+
+
+const searchInput = document.querySelector('.search');
+const suggestionsElement = document.querySelector('.suggestions')
+
+searchInput.addEventListener('change', displayMatches)
+searchInput.addEventListener('keyup', displayMatches)
+
+function clearMatches(){
+    while(suggestionsElement.firstChild){
+        suggestionsElement.firstChild.remove();
+    }
+}
+
+async function displayMatches(){
+    clearMatches()
+
+    const alcoholicEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Alcoholic';
+    const nonAlcoholicEndpoint = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic';
+
+    const drinksList = await GetDataFromServer(alcoholicEndpoint, nonAlcoholicEndpoint)
+    const matchArr = findMatches(this.value, drinksList)
+    
+    matchArr.forEach(drink => {
+        const regex = new RegExp(this.value, 'gi')
+        const hlName = drink.strDrink.replace(regex, `<span class="hl">${this.value}</span>`)
+
+        hlElement = document.createElement('li')
+        hlElement.classList.add('drinkList')
+        hlElement.innerHTML += hlName; 
+        suggestionsElement.appendChild(hlElement)
+    })
+}
+
+
+function findMatches(wordToMatch, drinksArr){
+    return drinksArr.filter(drink => {
+        const regex = new RegExp(wordToMatch, 'gi')
+        return drink.strDrink.match(regex)
+    })
+}

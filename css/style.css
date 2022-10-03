@@ -92,6 +92,7 @@ h1, h2, h3, h4, h5, h6{
   transform: translateX(0)
 }
 
+
 /******************************************
 /* SITEWIDE
 /*******************************************/
@@ -496,6 +497,14 @@ input[type='submit']:hover{
 input.search{
   font-size: 2rem;
   text-align: center;
+}
+
+.hl{
+  color: red;
+}
+
+.drinkList{
+  
 }
 
 /******************************************
